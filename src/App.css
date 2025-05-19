@@ -1,0 +1,241 @@
+/* Base styles from your initial request */
+body {
+  background-color: #f1f5f9; /* Default, will be overridden by .app-container */
+  color: #1e293b; /* Default, will be overridden by .app-container */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.btn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, transform, box-shadow; /* Added box-shadow for focus */
+  transition-duration: 150ms;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center; /* Ensure text is centered in buttons */
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+/* Updated focus to be more distinct on dark backgrounds */
+.btn:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.7); /* A slightly more visible ring */
+}
+
+.btn-primary {
+  background-color: #3b82f6; /* Adjusted to Tailwind's blue-500 for consistency with component */
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #2563eb; /* Adjusted to Tailwind's blue-600 */
+}
+.btn-primary:focus {
+  /* box-shadow: 0 0 0 2px #3b82f6; was from original, let's use the general .btn:focus */
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.8); /* Tailwind's blue-400 focus ring color */
+}
+
+.btn-secondary {
+  background-color: #4b5563; /* Adjusted to a darker slate for better contrast on dark bg (Tailwind gray-600) */
+  color: #e5e7eb; /* Lighter text (Tailwind gray-200) */
+}
+.btn-secondary:hover {
+  background-color: #374151; /* Tailwind gray-700 */
+}
+.btn-secondary:focus {
+  /* box-shadow: 0 0 0 2px #94a3b8; was from original, let's use the general .btn:focus */
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.8); /* Tailwind's gray-500 focus ring color */
+}
+
+.btn:disabled {
+  background-color: #4b5563; /* Tailwind gray-600 */
+  color: #9ca3af; /* Tailwind gray-400 */
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.7;
+}
+
+/* App specific styles */
+:root {
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-300: #cbd5e1;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-300: #93c5fd;
+  --red-500: #ef4444;
+  --red-200: #fecaca;
+
+  --text-light: #f8fafc; /* General light text for dark backgrounds */
+  --text-muted: var(--slate-300);
+  --border-color: var(--slate-600);
+  --input-bg: var(--slate-700);
+  --card-bg: rgba(30, 41, 59, 0.6); /* slate-800 with alpha for glassmorphism */
+}
+
+.app-container {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--slate-900),
+    var(--slate-800)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem; /* p-4 */
+  color: var(--text-light);
+  box-sizing: border-box;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+.app-logo-icon {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem; /* mb-4 */
+  color: var(--blue-400);
+}
+
+.app-title {
+  font-size: 3rem; /* text-5xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 0.5rem; /* mb-2 */
+  color: var(--text-light);
+}
+
+.app-subtitle {
+  font-size: 1.25rem; /* text-xl */
+  color: var(--slate-300);
+}
+
+.error-message {
+  margin-bottom: 1.5rem; /* mb-6 */
+  padding: 0.75rem; /* p-3 */
+  background-color: rgba(239, 68, 68, 0.2); /* bg-red-500/30 more subtle */
+  color: var(--red-200);
+  border: 1px solid var(--red-500);
+  border-radius: 0.375rem; /* rounded-md */
+  width: 100%;
+  max-width: 28rem; /* max-w-md */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.forms-container {
+  width: 100%;
+  max-width: 28rem; /* max-w-md */
+}
+/* Simulates space-y-8 */
+.forms-container > .form-card + .form-card {
+  margin-top: 2rem;
+}
+
+.form-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
+  border-radius: 0.75rem; /* rounded-xl */
+  padding: 2rem; /* p-8 */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glass effect */
+}
+/* Simulates space-y-6 for elements inside form-card */
+.form-card > * + * {
+  margin-top: 1.5rem;
+}
+
+.form-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
+  text-align: center;
+  color: var(--blue-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* gap-2 */
+  margin: 0; /* Reset default h2 margin if any */
+}
+
+.form-title-icon {
+  /* Lucide icons are already sized via prop, this is for potential adjustments */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.form-group {
+  /* No direct Tailwind equivalent, just a logical grouping */
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: var(--slate-300);
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem; /* Adjusted from px-4 py-2 to be a bit taller */
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem; /* rounded-md */
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box; /* Important for width: 100% */
+}
+.form-input::placeholder {
+  color: var(--slate-500);
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:ring-2 focus:ring-blue-500 */
+}
+
+.form-button {
+  width: 100%;
+  display: flex; /* For icon and text alignment if needed in future */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* For icon and text */
+}
+/* Ensure the button styles from .btn, .btn-primary, .btn-secondary are applied */
+.form-button.btn-primary {
+  /* specific overrides for form context if needed, else uses base .btn-primary */
+}
+.form-button.btn-secondary {
+  /* specific overrides for form context if needed, else uses base .btn-secondary */
+}
+
+.app-footer {
+  margin-top: 3rem; /* mt-12 */
+  text-align: center;
+  color: var(--slate-500);
+  font-size: 0.875rem; /* text-sm */
+}
+
+/* For lucide icons, if you need to style them globally (usually not necessary as props handle it) */
+.lucide {
+  display: inline-block;
+  vertical-align: middle;
+}
