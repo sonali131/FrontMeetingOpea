@@ -18,7 +18,9 @@ import {
 } from "lucide-react";
 import "./MeetingRoom.css"; // Import the CSS file
 
-const SOCKET_SERVER_URL = "http://localhost:3001";
+//const SOCKET_SERVER_URL = "http://localhost:3001";
+const SOCKET_SERVER_URL =
+  import.meta.env.VITE_SOCKET_SERVER_URL || "http://localhost:3001";
 
 const MeetingRoom = ({ meetingId, onLeaveMeeting }) => {
   const [meeting, setMeeting] = useState(null);
