@@ -327,3 +327,5 @@ const MeetingRoom = ({ meetingId, onLeaveMeeting }) => {
     </div>
   );
 };
+
+export default MeetingRoom;
